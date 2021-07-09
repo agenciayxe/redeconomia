@@ -1,0 +1,162 @@
+.home-section {
+	position: relative;
+}
+.banner-home-default {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 290px;
+	margin: 15px 0px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	h1 {
+		font-size: 35px;
+		text-align: center;
+		color: white;
+		margin: 15px;
+	}
+	&.big-banner {
+		height: 400px;
+	}
+	&.small-banner {
+		height: 185px;
+		margin: 15px 0px 30px;
+	}
+	&.video-banner {
+		height: auto !important;
+	}
+	&.right-video-banner {
+		height: 410px;
+	}
+	.swiper-offers {
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		.swiper-wrapper {
+			height: 100%;
+			width: 100%;
+			.swiper-slide {
+				height: 100%;
+				width: 100%;
+				.banner-slide-single {
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center;
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+.home-content {
+	padding-top: 15px;
+	.title-map {
+		font-size: 25px;
+		font-weight: bold;
+		margin-top: 15px;
+	}
+	.link-title a {
+		color: $corBranco;
+		font-size: 23px;
+	}
+	.title-map, .link-title {
+		background-color: $corPrincipal;
+		width: 100%;
+		color: $corBranco;
+		padding: 4px 15px;
+		text-align: right;
+	}
+}
+@media screen and (max-width: $xsWidth) {
+	.banner-home-default {
+		height: 120px;
+		h1 {
+			font-size: 23px;
+		}
+		&.big-banner {
+			height: 170px;
+		}
+		&.small-banner {
+			height: 105px;
+		}
+		&.right-video-banner {
+			height: 240px;
+		}
+		&.offers-banner {
+			height: 380px;
+		}
+	}
+	.home-content {
+		padding-top: 0px;
+		margin-bottom: 30px;
+		.title-map {
+			margin-top: 0px;
+		}
+	}
+}
+@media screen and (min-width: $smWidth) and (max-width: $mdWidth) {
+	.banner-home-default {
+		height: 240px;			
+		h1 {
+			font-size: 29px;
+		}
+		&.big-banner {
+			height: 270px;
+		}
+		&.small-banner {
+			height: 120px;
+		}
+		&.right-video-banner {
+			height: 270px;
+		}
+		&.offers-banner {
+			height: 470px;
+		}
+	}
+	.home-content {
+		padding-top: 0px;
+		margin-bottom: 30px;
+		.title-map {
+			margin-top: 0px;
+		}
+	}
+}
+@media screen and (min-width: $mdWidth) and (max-width: $lgWidth) {
+	.banner-home-default {
+		height: 210px;
+		h1 {
+			font-size: 22px;
+		}
+		&.big-banner {
+			height: 240px;
+		}
+		&.small-banner {
+			height: 125px;
+ 		}
+		&.right-video-banner {
+			height: 253px;
+		}
+	}
+}
+@media screen and (min-width: $lgWidth) and (max-width: $xlWidth) {
+	.banner-home-default {
+		height: 280px;
+		h1 {
+			font-size: 23px;
+		}
+		&.big-banner {
+			height: 280px;
+		}
+		&.small-banner {
+			height: 159px;
+ 		}
+		&.right-video-banner {
+			height: 345px;
+		}
+	}
+}
+@media screen and (min-width: $xlWidth) {
+	
+}

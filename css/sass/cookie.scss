@@ -1,0 +1,17 @@
+#cookie-alert {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: #da030b;
+    z-index: 100;
+    color: white;
+    padding: 15px 0px;
+    p {
+        margin: 0px;
+    }
+    .column-text {
+        display: flex;
+        align-items: center;
+    }
+}
