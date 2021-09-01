@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 		color: $corPrincipal;
 	}
 }
-h1 {  }
+// h1 {  }
 h2 { font-size: 35px; padding: 25px 0px; color: $corPrincipal; }
 .content-text { color: $corText; }
 
@@ -46,7 +46,7 @@ img { max-width: 100%; }
     color: $corPrincipal;
     background-color: #efefef;
     // border: solid 1px $corPrincipal;
-    border-radius: 30px;
+    border-radius: 30px !important;
     &::placeholder {
         color: #585858 !important;
     }

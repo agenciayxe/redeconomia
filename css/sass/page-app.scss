@@ -1,0 +1,47 @@
+.page-app {
+    .box-app {
+        margin: 25px 0px;
+        background-image: url('../img/app/app-fundo.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 12px;
+        padding: 0px 15px;
+        &.box-1 {
+            .title-main {
+                width: 100%;
+                max-width: 550px;
+                margin: 15px 0px;
+            }
+            .link-main {
+                width: 100%;
+                max-width: 400px;
+                margin: 7px 0px;
+            }
+        }
+        .title-box {
+            width: 100%;
+            max-width: 530px;
+            margin: 15px 0px;
+        }
+        .img-box {
+            width: 100%;
+            max-width: 390px;
+        }
+        &.box-2 {
+            flex-direction: row;
+            justify-content: space-around;
+            .link-install {
+                flex: 1;
+                margin: 15px;
+                max-width: 330px;
+                .link-img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

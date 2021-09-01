@@ -19,7 +19,7 @@
 		<?php
 		date_default_timezone_set("America/Sao_Paulo");
 		$timeCurrent = (string) strftime('%Y-%m-%d %H:%M:%S', strtotime('now'));
-		if (is_front_page() || get_post_type() == 'dicas') {
+		if (is_front_page() || get_post_type() == 'dicas' || is_page('48695')) {
 			$arraySlide = array(
 				'post_type' => 'slide',
 				'order' => 'DESC',
@@ -77,7 +77,7 @@
 			}
 			wp_reset_query();
 		}
-		else {
+		else if (has_post_thumbnail($post->id)) {
 			?><div class="home-banner col-lg-10 col-md-9 col-12" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>');"><!-- <img src="<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>" alt=""> --></div><?php
 		}
 		?>		

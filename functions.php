@@ -22,6 +22,8 @@ $argVar = array(
 	'fidelidade' => 50,
 	'trabalhe' => 19,
 	'promocoes' => 21,
+	'cadastre' => 42850,
+	'newsletter' => 42850,
 );
 InfoVar::save($argVar);
 ?>

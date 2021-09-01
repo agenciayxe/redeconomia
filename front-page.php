@@ -7,5 +7,8 @@ get_template_part('templates/ads', 'home-1');
 get_template_part('templates/home', 'tips');
 get_template_part('templates/ads', 'home-2');
 get_template_part('templates/home', 'services');
+
+if ($_GET['teste'] == 'roleta') { get_template_part('templates/home', 'roleta'); }
+
 get_footer(); 
 ?>

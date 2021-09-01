@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>Roleta</title>
+        <script src='js/winwheel.js'></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+        
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class=" d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <img src="campanha.png" class="img-fluid" width="250" alt="">
+                </div>
+            </div>
+            <div class="content-center row d-flex">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div width="345" height="345" class="the_wheel">
+                        <canvas id="canvas" width="320" height="320">
+                            <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                        </canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="power_controls">
+                        <form id="form-action">
+                            <div class="my-2">
+                                <label for="nome">
+                                    Nome Completo
+                                </label>
+                                <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite seu nome completo">
+                            </div>
+                            <div class="my-2">
+                                <label for="cpf">
+                                    CPF
+                                </label>
+                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF">
+                            </div>
+                            <div class="my-2">
+                                <label for="email">
+                                    E-mail
+                                </label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Informe seu e-mail">
+                            </div>
+                            <div class="my-2">
+                                <label for="telefone">
+                                    Telefone
+                                </label>
+                                <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Informe o telefone">
+                            </div>
+                            <div class="my-2">
+                                <label for="loja">
+                                    Loja mais próxima
+                                </label>
+                                <select name="" id="" class="form-control">
+                                    <option value="">asd</option>
+                                </select>
+                            </div>
+                            <div class="my-3">
+                                <button type="submit" class="btn" id="spin_button" ><i class="fas fa-award"></i> Sortear meu prêmio</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let theWheel = new Winwheel({
+                'outerRadius'     : 136,        
+                'innerRadius'     : 55,         
+                'textFontSize'    : 10,         
+                'textOrientation' : 'horizontal',
+                'textAlignment'   : 'center',    
+                'numSegments'     : 10,         
+                'segments'        :             
+                [                                                  
+                   {'fillStyle' : '#da030b', 'text' : ' Cesta de \n Produtos'},
+                   {'fillStyle' : '#f8c449', 'text' : ' 1.000 pontos\n no APP'},
+                   {'fillStyle' : '#da030b', 'text' : ' Não Foi \n Dessa Vez'},
+                   {'fillStyle' : '#f8c449', 'text' : ' Cesta de \n Produtos'},
+                   {'fillStyle' : '#da030b', 'text' : ' R$150'},
+                   {'fillStyle' : '#f8c449', 'text' : ' 1.000 pontos \n no APP'},
+                   {'fillStyle' : '#da030b', 'text' : ' Cesta de \n Produtos'},
+                   {'fillStyle' : '#f8c449', 'text' : ' Não Foi \n Dessa Vez'},
+                   {'fillStyle' : '#da030b', 'text' : ' 1.000 pontos \n no APP'},
+                   {'fillStyle' : '#f8c449', 'text' : ' Não Foi \nDessa Vez'},
+                ],
+                'animation' : {
+                    'type'     : 'spinToStop',
+                    'duration' : 10,
+                    'spins'    : 3, 
+                    'callbackFinished' : alertPrize,
+                    'callbackSound'    : playSound,
+                    'soundTrigger'     : 'pin'
+                },
+            });
+
+            let audio = new Audio('tick.mp3');
+            function playSound() { audio.pause(); audio.currentTime = 0; audio.play(); }
+
+            let wheelPower    = 0;
+            let wheelSpinning = false;
+
+            function powerSelected(powerLevel) {
+                if (wheelSpinning == false) {
+                    wheelPower = powerLevel;
+
+                    document.getElementById('spin_button').src = "spin_on.png";
+                    document.getElementById('spin_button').className = "clickable";
+                }
+            }
+
+            function startSpin() {
+                if (wheelSpinning == false) {
+                    theWheel.animation.spins = 4;
+                    
+                    document.getElementById('spin_button').className = "";
+                    theWheel.startAnimation();
+                    wheelSpinning = true;
+                }
+            }
+        
+            function ajaxStateChange() {
+                theWheel.stopAnimation(false);
+                theWheel.rotationAngle = 0;
+                theWheel.draw();
+                wheelSpinning = false; 
+
+                theWheel.animation.spins = 4;
+                let stopAt = theWheel.getRandomForSegment(6);
+                theWheel.animation.stopAngle = stopAt;
+                theWheel.startAnimation();
+                wheelSpinning = true;
+            }
+            
+            function sendForm() {
+                var nome = $('.nome');
+                var cpf = $('.cpf');
+                var email = $('.email');
+                var telefone = $('.telefone');
+                var loja = $('.loja');
+
+                
+            }
+            
+            $('#form-action').on('submit', function (e) { e.preventDefault(); sendForm(); });
+
+            function alertPrize(indicatedSegment) { 
+                console.log('asd');
+            }
+            
+        </script>
+    </body>
+</html>

@@ -107,16 +107,13 @@ $(document).ready(function () {
 	$('.list-brand img').on('load', function () {
 		listBrand();
 	});
-	/*
+
 	var $doc = $('html, body');
-	$('nav a').click(function() {
+	$('.link-app').click(function() {
 		var tamanhoHeader = $("header").height();
 	    $doc.stop().animate({
-	        scrollTop: $( $.attr(this, 'href') ).offset().top
+	        scrollTop: $( $.attr(this, 'href') ).offset().top - tamanhoHeader - 50
 	    }, 500);
-		$('.hamburger').removeClass('is-active');
-		$("nav").removeClass('active');
 	    return false;
 	});
-	*/
 });

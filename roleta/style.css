@@ -1,0 +1,58 @@
+
+.the_wheel {
+    background-image: url(wheel_back.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 320px;
+    height: 480px;
+    padding-top: 53px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-roleta {
+	background-color: #980006;
+    background-image: url(background-roleta.jpg);
+	background-position: center;
+	background-size: cover;
+	color: white;
+}
+.content-roleta a {
+    text-decoration: none !important;
+    color: #ffeb00 !important;
+}
+@media screen and (max-width: 768px) {
+    .content-roleta {
+        display: block !important;
+        align-items: unset !important;
+    }
+}
+
+.btn-roleta {
+	background-color: #da030b !important;
+	border: none;
+	padding: 10px;
+	font-size: 1em;
+	border-radius: 5px;
+	color: white !important;
+}   
+
+.roleta-title {
+    
+    color: #efefef;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.roleta-text {
+    
+    color: #efefef;
+    font-size: 1.5em;
+
+}
+.content-roleta .close {
+    color: white !important;
+    opacity: 1 !important;
+    font-size: 3em !important;
+}
