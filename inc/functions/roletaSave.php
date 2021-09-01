@@ -18,10 +18,6 @@ function roletaSave() {
     $wpdb->get_results("SELECT * FROM roleta_cadastros WHERE cpf='{$content['cpf']}'" );
 	$cpfQuantity = $wpdb->num_rows;
 
-    $typeAccepts = array('png','jpg','jpeg','pdf');
-    $fileTitle = $_FILES['anexo']['name'];
-    $extFile = pathinfo($fileTitle, PATHINFO_EXTENSION);
-
     if ($content['nome'] == '') { $arrayReturn['response'] = 'O nome digitado não é válido.'; }
     else if ($content['email'] == '') { $arrayReturn['response'] = 'O e-mail digitado não é válido.'; }
     else if ($content['telefone'] == '') { $arrayReturn['response'] = 'O telefone digitado não é válido.'; }
@@ -30,8 +26,6 @@ function roletaSave() {
     else if (strlen($content['telefone']) <= 9) { $arrayReturn['response'] = 'O telefone é muito pequeno.'; }
     else if ($content['loja'] == '') { $arrayReturn['response'] = 'Você precisa selecionar a loja mais próxima.'; }
     else if ($content['aceito'] == false) { $arrayReturn['response'] = 'Você precisa aceitar os termos pra continuar.'; }
-    else if ($_FILES['anexo']['error'] > 0) { $arrayReturn['response'] = 'Seu arquivo é muito grande ou possui um erro.'; }
-    else if (!in_array($extFile, $typeAccepts) && !empty($_FILES['anexo']) && $_FILES['anexo']['tmp_name'] != '') { $arrayReturn['response'] = 'Você precisa anexar a nota e anexar no formato correto.'; }
     else if ($emailQuantity > 0) { $arrayReturn['response'] = 'Seu e-mail já participou do sorteio.'; }
     else if ($cpfQuantity > 0) { $arrayReturn['response'] = 'Este CPF já participou do sorteio.'; }
     else {
@@ -89,11 +83,6 @@ function roletaSave() {
             array( '%d' )
         ); 
 
-        $slugTitle = sanitize_title($content['nome']);
-        $pathUpload = (!empty($_FILES['anexo'])) ? get_home_path() . 'anexoroleta/' . $content['cpf'] .  '-' . $slugTitle . '.' . $extFile : '';
-        $urlUpload = (!empty($_FILES['anexo']) || $_FILES['anexo']['tmp_name'] == '') ? 'https://redeconomia.com.br/anexoroleta/' . $content['cpf'] .  '-' . $slugTitle . '.' . $extFile : '';
-        move_uploaded_file($_FILES['anexo']['tmp_name'], $pathUpload);
-
         $insertCustomer = $wpdb->insert(
             'roleta_cadastros',
             array(
@@ -104,7 +93,6 @@ function roletaSave() {
                 'loja' => $content['loja'],
                 'aceito' => $content['aceito'],
                 'premio_id' => $idPremio,
-                'anexo' => $urlUpload,
                 'data_hora' => $content['date_created'],
             )
         );

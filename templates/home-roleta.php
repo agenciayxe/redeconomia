@@ -57,10 +57,6 @@
 										?>
 									</select>
 									<div class="my-3">
-										<label for="anexo-contact">Anexar nota de compra</label>
-										<input type="file" name="anexo" class="input-contato" id="anexo-contact">
-									</div>
-									<div class="my-3">
 										<input type="checkbox" name="aceito" id="aceito" value="sim"> Aceito os termos e condições
 									</div>
 								</div>
@@ -139,7 +135,6 @@
 	formRoleta.submit( function (e) {
 		if (!sendRoleta) {
 			e.preventDefault();
-			var nome = $('#nome').val(); var cpf = $('#cpf').val(); var email = $('#email').val(); var telefone = $('#telefone').val(); var loja = $('#loja').val(); var aceito = ($('#aceito').prop("checked")) ? 1: 0;
 			var content = new FormData(formRoleta[0]);
 			$.ajax({
 				type: 'POST',
