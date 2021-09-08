@@ -24,6 +24,7 @@ function roletaSave() {
     else if (strlen($content['nome']) <= 3) { $arrayReturn['response'] = 'O nome é muito pequeno.'; }
     else if (strlen($content['email']) <= 7) { $arrayReturn['response'] = 'O e-mail é muito pequeno.'; }
     else if (strlen($content['telefone']) <= 9) { $arrayReturn['response'] = 'O telefone é muito pequeno.'; }
+    else if (validaCPF($content['cpf']) == false) { $arrayReturn['response'] = 'O CPF informado não é válido.'; }
     else if ($content['loja'] == '') { $arrayReturn['response'] = 'Você precisa selecionar a loja mais próxima.'; }
     else if ($content['aceito'] == false) { $arrayReturn['response'] = 'Você precisa aceitar os termos pra continuar.'; }
     else if ($emailQuantity > 0) { $arrayReturn['response'] = 'Seu e-mail já participou do sorteio.'; }
@@ -102,6 +103,7 @@ function roletaSave() {
             $arrayReturn['message'] = $infoPremios[$idPremio]->message;
             $arrayReturn['title'] = $infoPremios[$idPremio]->title;
             $arrayReturn['status'] = true;
+            $arrayReturn['spin'] = $idPremio;
             $arrayReturn['response'] = 'Obrigado! Seu cadastro foi efetuado com sucesso. ';
         }
         else {

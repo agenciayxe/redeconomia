@@ -8,41 +8,36 @@ get_template_part('templates/ads', 'about');
 <main class="page-biography section">
 	<div class="container">
 		<div class="box-biography">
-				
-
-					<section class="row">
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="title-section">
-										<h3>
-											A Redeconomia
-										</h3>
-										<p>
-											Nossa História
-										</p>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="content-section">
-										<p>Em agosto de 1998, foi fundada a REDERJ – Associação REDECONOMIA de Supermercados do Estado do Rio de Janeiro, formada pela união de 7 empresas supermercadistas, com 37 lojas, que passaram a “bandeira comercial”: REDECONOMIA de Supermercados.</p>
-										<p>No decorrer de 8 anos desde sua fundação, a Redeconomia, pioneira no conceito associativista, recebeu a adesão de outras empresas.</p>
-										<p>Em 2020 já são mais de 90 lojas , consolidando a posição de maior rede associativista no país.</p>
-									</div>
-								</div>
+			<section class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="title-section">
+								<h3>
+									A Redeconomia
+								</h3>
+								<p>
+									Nossa História
+								</p>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="about-figure">
-								<div class="image-figure img-circle" style="background-image: url('<?php echo get_bloginfo('template_url'); ?>/img/rede-quem-somos.jpg');" alt="">
-								</div>
-								<img src="<?php echo get_bloginfo('template_url'); ?>/img/rede-quem-somos_1.jpg" class="img-fluid rounded-circle" alt="">
+						<div class="col-md-12">
+							<div class="content-section">
+								<p>Em agosto de 1998, foi fundada a REDERJ – Associação REDECONOMIA de Supermercados do Estado do Rio de Janeiro, formada pela união de 7 empresas supermercadistas, com 37 lojas, que passaram a “bandeira comercial”: REDECONOMIA de Supermercados.</p>
+								<p>No decorrer de 8 anos desde sua fundação, a Redeconomia, pioneira no conceito associativista, recebeu a adesão de outras empresas.</p>
+								<p>Em 2020 já são mais de 90 lojas , consolidando a posição de maior rede associativista no país.</p>
 							</div>
 						</div>
-					</section>
-
-
-
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="about-figure">
+						<div class="image-figure img-circle" style="background-image: url('<?php echo get_bloginfo('template_url'); ?>/img/rede-quem-somos.jpg');" alt="">
+						</div>
+						<img src="<?php echo get_bloginfo('template_url'); ?>/img/rede-quem-somos_1.jpg" class="img-fluid rounded-circle" alt="">
+					</div>
+				</div>
+			</section>
 		</div>
 	</div>
 	<div class="content-icons-about py-5 my-5">

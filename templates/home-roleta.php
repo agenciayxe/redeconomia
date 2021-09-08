@@ -80,6 +80,11 @@
 <script>
 	$(document).ready(function() { 	
 		$('#modalRoleta').modal('show');
+		function gtag_report_conversion() {
+			gtag('create', 'AW-824599583', 'auto');
+			gtag('event', 'conversion', { 'send_to': 'AW-824599583/cNbWCMOUzcQBEJ_ImYkD' });
+			console.log('Ads');
+		}
 	});
 
 	let theWheel = new Winwheel({
@@ -88,7 +93,7 @@
 		'textFontSize'    : 9,         
 		'textOrientation' : 'horizontal',
 		'textAlignment'   : 'center',    
-		'numSegments'     : 10,         
+		'numSegments'     : 14,         
 		'segments'        :             
 		[                                                  
 			<?php
@@ -133,6 +138,7 @@
 	}
 	var sendRoleta = false; var titleText = ''; var contentText = ''; var formRoleta = $("#form-action");
 	formRoleta.submit( function (e) {
+		gtag_report_conversion();
 		if (!sendRoleta) {
 			e.preventDefault();
 			var content = new FormData(formRoleta[0]);
