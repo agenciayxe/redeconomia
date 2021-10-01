@@ -80,12 +80,13 @@
 <script>
 	$(document).ready(function() { 	
 		$('#modalRoleta').modal('show');
-		function gtag_report_conversion() {
-			gtag('create', 'AW-824599583', 'auto');
-			gtag('event', 'conversion', { 'send_to': 'AW-824599583/cNbWCMOUzcQBEJ_ImYkD' });
-			console.log('Ads');
-		}
 	});
+	
+	function gtag_report_conversion() {
+		gtag('create', 'AW-824599583', 'auto');
+		gtag('event', 'conversion', { 'send_to': 'AW-824599583/cNbWCMOUzcQBEJ_ImYkD' });
+		console.log('Ads');
+	}
 
 	let theWheel = new Winwheel({
 		'outerRadius'     : 136,        
@@ -93,7 +94,7 @@
 		'textFontSize'    : 9,         
 		'textOrientation' : 'horizontal',
 		'textAlignment'   : 'center',    
-		'numSegments'     : 14,         
+		'numSegments'     : 17,         
 		'segments'        :             
 		[                                                  
 			<?php

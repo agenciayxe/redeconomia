@@ -31,7 +31,7 @@
 					else { ?><h3 class="text-center">Sem vídeo de ofertas no momento!</h3><?php }
 
 					 /* echo do_shortcode('[youtube_channel]'); */ 
-					 ?>
+					?>
 	 			</div>
 	 			<div class="col-md-6">
 					
