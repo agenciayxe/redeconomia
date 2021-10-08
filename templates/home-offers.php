@@ -1,5 +1,8 @@
 <section class="section section-offers">
 	 <div class="container">
+		 <div class="box-criancas">
+			 <a href="https://redeconomia.com.br/colorir.pdf"><img src="<?php echo get_bloginfo('template_url'); ?>/img/criancas/banner_site.png" class="img-fluid" alt=""></a>
+		 </div>
 	 	<div class="content-offers">
 	 		<div class="d-flex row justify-content-center">
 	 			<div class="col-md-6">
@@ -31,7 +34,7 @@
 					else { ?><h3 class="text-center">Sem vídeo de ofertas no momento!</h3><?php }
 
 					 /* echo do_shortcode('[youtube_channel]'); */ 
-					?>
+					 ?>
 	 			</div>
 	 			<div class="col-md-6">
 					

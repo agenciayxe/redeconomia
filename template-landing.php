@@ -14,6 +14,18 @@ Template name: Landing Page - Newsletter
     <title>Redeconomia</title>
     <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/css/landing.css">
     <?php wp_head(); ?>
+    
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110492274-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-110492274-1');
+	</script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.redeconomia.com.br/wp-content/uploads/2019/06/logo-ico.png"> 
+	<!-- Global site tag (gtag.js) - Google Ads: 824599583 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-824599583"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-824599583'); </script>
 </head>
 <body>
     <div class="content">
@@ -58,7 +70,7 @@ Template name: Landing Page - Newsletter
                     <button type="submit">Receba Ofertas</button>
                 </form>
                 -->
-                <?php echo do_shortcode('[dinamize-form id="44634"]') ?>
+                <?php echo do_shortcode('[dinamize-form id="44961"]') ?>
             </div>
         </div>
     </div>
@@ -89,6 +101,21 @@ Template name: Landing Page - Newsletter
             <img src="<?php echo get_bloginfo('template_url'); ?>/img/landing/icon.png" class="img-icon" alt="">
         </div>
     </footer>
+    <script>
+    $(document).ready(function () {
+        function gtag_report_conversion() {
+            gtag('create', 'AW-824599583', 'auto');
+            gtag('event', 'conversion', { 'send_to': 'AW-824599583/cNbWCMOUzcQBEJ_ImYkD' });
+            console.log('Ads');
+        }
+        function callConversion() {
+            gtag_report_conversion();
+            console.log('send');
+        }
+        $(".form").on('submit', function() { callConversion() });
+    });
+    </script>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' id='jquery-js'></script>
     <?php wp_footer(); ?>
 </body>
 </html>
