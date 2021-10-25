@@ -81,21 +81,20 @@
 				</div>
 			</div>
 		</section>
+		<script>
+			$("#validate-continue").on('click', function () { 
+				$.post(search_object.location, {
+					action: 'cookie',
+					make: 'save'
+				}, function (storeReturn) {
+					$("#cookie-alert").remove();
+				});
+				return false;
+			});
+		</script>
 		<?php
 	}
 	?>
-	
-	<script>
-		$("#validate-continue").on('click', function () { 
-			$.post(search_object.location, {
-				action: 'cookie',
-				make: 'save'
-			}, function (storeReturn) {
-				$("#cookie-alert").remove();
-			});
-			return false;
-		});
-	</script>
 	<div class="box-back-top" id="box-back-top">
 		<i class="fas fa-arrow-up"></i>
 	</div>
@@ -117,7 +116,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/TRACK_2382.js"></script>
 	<?php /* modal('home', 'LIVE ASSERJ NO CRISTO REDENTOR', '<img src="' . get_bloginfo('template_url') . '/img/pop-up-redeconomia.jpg" class="img-fluid">' ); */ ?>
 	<script>
-		// $("#modal-home").modal('show');
+		$('.modal-destaque').modal('show');
 	</script>
 
 	<?php wp_footer(); ?>
