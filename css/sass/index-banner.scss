@@ -100,7 +100,7 @@
 			display: none;
 		}
 		.home-banner {
-			min-height: 140px;
+			min-height: 160px;
 			& > img {
 				display: none;
 			}
@@ -141,6 +141,25 @@
 				li {
 					a {
 						font-size: 16px;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: $xlWidth) {
+	.home-topo {
+		.home-banner {
+			min-height: 455px;
+			& > img {
+				display: none;
+			}
+		}
+		.home-banner-bar {
+			ul {
+				li {
+					a {
+						padding: 20px 10px;
 					}
 				}
 			}
