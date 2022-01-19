@@ -91,10 +91,10 @@
 	let theWheel = new Winwheel({
 		'outerRadius'     : 136,        
 		'innerRadius'     : 54,         
-		'textFontSize'    : 9,         
+		'textFontSize'    : 12,         
 		'textOrientation' : 'horizontal',
 		'textAlignment'   : 'center',    
-		'numSegments'     : 17,         
+		'numSegments'     : 8,         
 		'segments'        :             
 		[                                                  
 			<?php
