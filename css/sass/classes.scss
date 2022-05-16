@@ -2,7 +2,7 @@
 * { margin: 0px; word-wrap: break-word; }
 body, html { margin: 0px; padding: 0px; font-family: 'Open Sans'; }
 body { background-color: $corBranco; color: $corPrincipal; /* margin-top: 100px; */ }
-a, a:hover, a:active, a:focus, a:visited { cursor: pointer; text-decoration: none; color: $corSecundaria; }
+a, a:hover, a:active, a:focus, a:visited { cursor: pointer; text-decoration: none !important; color: $corSecundaria; }
 
 /* TÍTULOS E TEXTOS */
 main { 

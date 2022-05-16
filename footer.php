@@ -50,25 +50,30 @@
 		</div>
 	</footer>
 	<?php
-	if (is_front_page()) {
-		?>
+	if (is_page(19)) {
+	?>
 		<script>
-		$(document).ready(function () {
-            function gtag_report_conversion() {
-                gtag('create', 'AW-824599583', 'auto');
-                gtag('event', 'conversion', { 'send_to': 'AW-824599583/cNbWCMOUzcQBEJ_ImYkD' });
-                console.log('Ads');
-            }
-            function callConversion() {
-                gtag_report_conversion();
-            }
-            $(".form-area").on('submit', function() { callConversion() });
-        });
+			$(document).ready(function() {
+				function gtag_report_conversion() {
+					gtag('create', 'AW-824599583', 'auto');
+					gtag('event', 'conversion', {
+						'send_to': 'AW-824599583/ZiYiCMWk45MDEJ_ImYkD'
+					});
+					console.log('Ads');
+				}
+
+				function callConversion() {
+					gtag_report_conversion();
+				}
+				$("#form-work").on('submit', function() {
+					callConversion()
+				});
+			});
 		</script>
-		<?php
+	<?php
 	}
 	if (!isset($_COOKIE['cookie_accepted'])) {
-		?>
+	?>
 		<section id="cookie-alert" class="active">
 			<div class="container">
 				<div class="row">
@@ -82,32 +87,32 @@
 			</div>
 		</section>
 		<script>
-			$("#validate-continue").on('click', function () { 
+			$("#validate-continue").on('click', function() {
 				$.post(search_object.location, {
 					action: 'cookie',
 					make: 'save'
-				}, function (storeReturn) {
+				}, function(storeReturn) {
 					$("#cookie-alert").remove();
 				});
 				return false;
 			});
 		</script>
-		<?php
+	<?php
 	}
 	?>
 	<div class="box-back-top" id="box-back-top">
 		<i class="fas fa-arrow-up"></i>
 	</div>
-	
+
 	<script src="<?php bloginfo('template_url'); ?>/js/swiper.min.js"></script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bbf6f323dad74f2"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js"></script>
-	
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	
+
 	<script src="<?php bloginfo('template_url'); ?>/js/swiper.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/inc/bxslider/jquery.bxslider.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/functions.js?v=1.1.19"></script>
@@ -120,5 +125,6 @@
 	</script>
 
 	<?php wp_footer(); ?>
-</body>
-</html>
+	</body>
+
+	</html>

@@ -17,6 +17,7 @@ function roletaSave() {
 
     $wpdb->get_results("SELECT * FROM roleta_cadastros WHERE cpf='{$content['cpf']}'" );
 	$cpfQuantity = $wpdb->num_rows;
+    $tokenAtual = 'a09e123a02f23dda84e5f1821d537886';
 
     if ($content['nome'] == '') { $arrayReturn['response'] = 'O nome digitado não é válido.'; }
     else if ($content['email'] == '') { $arrayReturn['response'] = 'O e-mail digitado não é válido.'; }
@@ -29,13 +30,16 @@ function roletaSave() {
     else if ($content['aceito'] == false) { $arrayReturn['response'] = 'Você precisa aceitar os termos pra continuar.'; }
     else if ($emailQuantity > 0) { $arrayReturn['response'] = 'Seu e-mail já participou do sorteio.'; }
     else if ($cpfQuantity > 0) { $arrayReturn['response'] = 'Este CPF já participou do sorteio.'; }
+    else if (!isset($content['token']) || $content['token'] != $tokenAtual) { $arrayReturn['response'] = 'Atualizamos a roleta, tente fechar o aplicativo e abrí-lo novamente, se persistir tente aguardar alguns minutos.'; }
     else {
 
+        // ID PADRÃO DE NÃO FOI DESSA VEZ 
+        $idNullPremio = 2;
         // armazena os números
         $arrayMerge = array();
 
         // Lista de todos os premios
-        $listPremios = $wpdb->get_results( "SELECT *  FROM roleta_premios" );
+        $listPremios = $wpdb->get_results( "SELECT *  FROM roleta_premios where status=1" );
         
         // Lista de cadastros
         $wpdb->get_results( "SELECT * FROM roleta_cadastros" );
@@ -68,11 +72,17 @@ function roletaSave() {
         }
         
         // Adiciona mais vezes o não foi dessa vez
-        for ($h = 0; $h <= 20; $h++) { $arrayMerge[] = 11; }
+        for ($h = 0; $h <= 20; $h++) { $arrayMerge[] = $idNullPremio; }
 
         // Efetua o sorteio
         $sorteio = array_rand($arrayMerge);
-        $idPremio = $arrayMerge[$sorteio];
+        $idPremio = $arrayMerge[$sorteio]; 
+        $countLine = 1;
+        foreach ($infoPremios as $premioIdCurrent) {
+            if ($idPremio == $premioIdCurrent->id) { $idRoleta = $countLine; break; }
+            else if ($idPremio == $idNullPremio) { $idRoleta = $countLine; }
+            $countLine++;
+        }
 
         // Faz uma varredura dos premios
         $adicionaPremio = ($infoPremios[$idPremio]->drawn + 1);
@@ -94,16 +104,18 @@ function roletaSave() {
                 'loja' => $content['loja'],
                 'aceito' => $content['aceito'],
                 'premio_id' => $idPremio,
+                'notification' => 1,
                 'data_hora' => $content['date_created'],
             )
         );
         if ($insertCustomer) {
-            // $idCustomer = $wpdb->insert_id;
-            // mailContact($idCustomer);
+            $idCustomer = $wpdb->insert_id;
+            mailRoletaNotification($content, $idCustomer, $infoPremios[$idPremio]);
             $arrayReturn['message'] = $infoPremios[$idPremio]->message;
             $arrayReturn['title'] = $infoPremios[$idPremio]->title;
             $arrayReturn['status'] = true;
-            $arrayReturn['spin'] = $idPremio;
+            $arrayReturn['premio_id'] = $idPremio;
+            $arrayReturn['spin'] = $idRoleta;
             $arrayReturn['response'] = 'Obrigado! Seu cadastro foi efetuado com sucesso. ';
         }
         else {

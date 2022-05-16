@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'inc/load.php';
 
 /* Links */
@@ -26,4 +26,3 @@ $argVar = array(
 	'newsletter' => 42850,
 );
 InfoVar::save($argVar);
-?>

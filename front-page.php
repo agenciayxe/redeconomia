@@ -8,10 +8,6 @@ get_template_part('templates/home', 'tips');
 get_template_part('templates/ads', 'home-2');
 get_template_part('templates/home', 'services');
 get_template_part('templates/home', 'popup');
+get_template_part('templates/home', 'roleta');
 
-if (isset($_GET['a']) && $_GET['a'] == 'b') {
-  get_template_part('templates/home', 'roleta');
-}
-
-get_footer(); 
-?>
+get_footer();

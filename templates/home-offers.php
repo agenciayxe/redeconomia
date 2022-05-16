@@ -1,8 +1,8 @@
 <section class="section section-offers">
 	 <div class="container">
-		 <div class="box-criancas">
+		 <!-- <div class="box-criancas">
 			 <a href="https://redeconomia.com.br/colorir.pdf"><img src="<?php echo get_bloginfo('template_url'); ?>/img/criancas/banner_site.png" class="img-fluid" alt=""></a>
-		 </div>
+		 </div> -->
 	 	<div class="content-offers">
 	 		<div class="d-flex row justify-content-center">
 	 			<div class="col-md-6">
