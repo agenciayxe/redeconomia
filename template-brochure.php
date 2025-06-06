@@ -47,7 +47,7 @@ get_template_part('templates/ads', 'brochure');
 			<?php
 			}
 		}
-		else { ?><h3 class="text-center">Atenção. Em breve grandes surpresas de ofertas. Aguardem!</h3><?php }
+		else { ?><h3 class="text-center">Atenção. Em breve grandes surpresas de ofertas. Aguardem</h3><?php }
 		?>
 	</div>
 </main>
