@@ -7,7 +7,7 @@ get_template_part('templates/ads', 'promotions');
 ?>
 <main class="page page-promotions">
 	<div class="container">
-		<h2>O cliente Redeconomia aqui sempre ganha. Aqui todo dia tem uma economia diferente! Fique por dentro dos nossos sorteios</h2>
+		<h2>O cliente Redeconomia aqui sempre ganha. Aqui todo dia tem uma economia diferente! Fique por dentro dos nossos sorteios.</h2>
 		<div class="list-promotions">
 			<?php
 				$argsStore = array(
